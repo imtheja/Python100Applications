@@ -75,3 +75,53 @@ else:
         else:
             print("You Win!")
 '''
+#Day 4: Rock Paper Scissors game
+import random
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+print("Welcome to Rock Paper Scissors Game!")
+intUserChoice = int(input("What do you choose? Type 0 for Rock, 1 for Paper and 2 for Scissors \n"))
+listResult = [["Draw", "You Lose", "You Win"], ["You Win", "Draw", "You Lose"], ["You Lose", "You Win", "Draw"]]
+if intUserChoice == 0:
+    print("Your Choice: Rock", rock)
+elif intUserChoice == 1:
+    print("Your Choice: Paper", paper)
+elif intUserChoice == 2:
+    print("Your Choice: Scissors", scissors)
+else:
+    print("Wrong Input, Start over again. ")
+
+if intUserChoice >=0 and intUserChoice < 3:
+    intComputersChoice = random.randint(0, 2)
+    if intComputersChoice == 0:
+        print("Computer Choice: Rock", rock)
+    elif intComputersChoice == 1:
+        print("Computer Choice: Paper", paper)
+    elif intComputersChoice == 2:
+        print("Computer Choice: Scissors", scissors)
+
+    print(listResult[intUserChoice][intComputersChoice])
+
+
