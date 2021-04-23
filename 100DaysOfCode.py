@@ -1,3 +1,4 @@
+import random
 '''
 #Day1
 print("Welcome to the Band Name Generator.")
@@ -74,33 +75,10 @@ else:
             print("You enter a room of beasts. Game Over.")
         else:
             print("You Win!")
-'''
+
 #Day 4: Rock Paper Scissors game
-import random
-rock = '''
-    _______
----'   ____)
-      (_____)
-      (_____)
-      (____)
----.__(___)
-'''
-paper = '''
-    _______
----'   ____)____
-          ______)
-          _______)
-         _______)
----.__________)
-'''
-scissors = '''
-    _______
----'   ____)____
-          ______)
-       __________)
-      (____)
----.__(___)
-'''
+#Ansi's for rock paper scissors were removed.
+
 print("Welcome to Rock Paper Scissors Game!")
 intUserChoice = int(input("What do you choose? Type 0 for Rock, 1 for Paper and 2 for Scissors \n"))
 listResult = [["Draw", "You Lose", "You Win"], ["You Win", "Draw", "You Lose"], ["You Lose", "You Win", "Draw"]]
@@ -124,4 +102,33 @@ if intUserChoice >=0 and intUserChoice < 3:
 
     print(listResult[intUserChoice][intComputersChoice])
 
+'''
+
+#Day5: Password Generator
+
+listLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+listNumbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+listSymbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+print("Welcome to the PyPassword Generator!")
+intNumOfletters= int(input("How many letters would you like in your password?\n"))
+intNumOfsymbols = int(input(f"How many symbols would you like?\n"))
+intNumOfnumbers = int(input(f"How many numbers would you like?\n"))
+listPassword = listLetters + listNumbers + listSymbols
+strPassword = ""
+
+for i in range(intNumOfnumbers):
+    intRandomIndex = random.randint(0, 9)
+    strPassword += str(listNumbers[intRandomIndex])
+
+for i in range(intNumOfletters):
+    intRandomIndex = random.randint(0, 52)
+    strPassword += str(listLetters[intRandomIndex])
+
+for i in range(intNumOfsymbols):
+    intRandomIndex = random.randint(0, 8)
+    strPassword += str(listSymbols[intRandomIndex])
+
+#strPassword = int(strPassword)
+print(f"Your password is: {strPassword}")
 
