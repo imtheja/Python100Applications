@@ -254,4 +254,63 @@ while not should_end:
         should_end = True
         print("Goodbye")
 
+
+#Day9: Grading Program
+student_scores = {
+    "Harry": 81,
+    "Ron": 78,
+    "Hermione": 99,
+    "Draco": 74,
+    "Neville": 62,
+}
+# 🚨 Don't change the code above 👆
+
+# TODO-1: Create an empty dictionary called student_grades.
+dictGrades = {}
+
+
+# TODO-2: Write your code below to add the grades to student_grades.
+for key in student_scores:
+    if 91 <= student_scores[key] <= 100:
+        dictGrades[key] = "Outstanding"
+    elif 81 <= student_scores[key] <= 90:
+        dictGrades[key] = "Exceeds Expectation"
+    elif 71 <= student_scores[key] <= 80:
+        dictGrades[key] = "Acceptable"
+    elif student_scores[key] <= 70:
+        dictGrades[key] = "Fail"
+
+# 🚨 Don't change the code below 👇
+print(dictGrades)
+
+
+#Main Exercise: Secret Bidding
+from replit import clear
+from art import logo
+print(logo)
+
+bids = {}
+bidding_finished = False
+
+def find_highest_bidder(bidding_record):
+  highest_bid = 0
+  winner = ""
+  # bidding_record = {"Angela": 123, "James": 321}
+  for bidder in bidding_record:
+    bid_amount = bidding_record[bidder]
+    if bid_amount > highest_bid: 
+      highest_bid = bid_amount
+      winner = bidder
+  print(f"The winner is {winner} with a bid of ${highest_bid}")
+
+while not bidding_finished:
+  name = input("What is your name?: ")
+  price = int(input("What is your bid?: $"))
+  bids[name] = price
+  should_continue = input("Are there any other bidders? Type 'yes or 'no'.\n")
+  if should_continue == "no":
+    bidding_finished = True
+    find_highest_bidder(bids)
+  elif should_continue == "yes":
+    clear()
 '''
